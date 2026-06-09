@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `pokemones`
 --
 
-CREATE TABLE `pokemones` (
+CREATE TABLE IF NOT EXISTS `pokemones` (
   `id` bigint UNSIGNED NOT NULL,
   `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,

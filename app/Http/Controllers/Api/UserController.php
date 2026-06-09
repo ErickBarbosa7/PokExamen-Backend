@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class userController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -108,12 +108,12 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (!isset($required->name)) {
-            return response()->json([
-                'estatus' => 0,
-                'data' => 'Falta el nombre'
-            ]);
-        }
+        if (!$request->name) {
+        return response()->json([
+            'estatus' => 0,
+            'data' => 'Falta el nombre'
+        ]);
+    }
         User::where('id',$id)->update([
             'name' => $request->name
         ]);
